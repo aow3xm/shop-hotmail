@@ -32,7 +32,7 @@ func main() {
 	productController.Route(app)
 
 	go func() {
-		app.Listen(":3000")
+		app.Listen(":" + cfg.Port)
 	}()
 	c := make(chan os.Signal, 1)
 	signal.Notify(c, os.Interrupt, syscall.SIGTERM)
